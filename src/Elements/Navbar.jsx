@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import  logo from '../assets/RAN logo.png'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +31,7 @@ function Navbar() {
         <nav className="p-6 border-b border-gray-700">
           <div className="container mx-auto flex justify-between items-center">
             {/* Logo */}
-            <h1 className="text-xl font-bold text-white">MyWebsite</h1>
+            <img src={logo} className='w-24 h-auto'/>
 
             {/* Desktop Menu */}
             <ul className="hidden md:flex space-x-6">
