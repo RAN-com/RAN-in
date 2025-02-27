@@ -1,191 +1,86 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/RAN logo.png";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
-const Navbar = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav
-      style={{ fontFamily: "Montserrat, sans-serif" }}
-      className="flex items-center justify-between px-6 py-4 bg-white shadow-md"
-    >
-      {/* Left Side - Logo */}
-      <div className="text-xl">
-        <Link to="/">
-          <img src={logo} className="w-24 h-auto" alt="RAN Logo" />
-        </Link>
-      </div>
+    <>
+      {/* Fixed Navbar with Dynamic Background */}
+      <div
+        className={`px-6 md:px-16 fixed top-0 left-0 w-full z-50 shadow-lg transition-all duration-300 ${
+          isScrolled ? 'bg-blue-900' : 'bg-transparent'
+        }`}
+      >
+        <nav className="p-6 border-b border-gray-700">
+          <div className="container mx-auto flex justify-between items-center">
+            {/* Logo */}
+            <h1 className="text-xl font-bold text-white">MyWebsite</h1>
 
-      {/* Center - Navigation Links (Desktop) */}
-      <ul className="hidden md:flex space-x-6 text-gray-700 font-bold">
-        <li>
-          <Link
-            to="/"
-            className="relative hover:text-red-500 after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/services"
-            className="relative hover:text-red-500 after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Services
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/pricing"
-            className="relative hover:text-red-500 after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Pricing
-          </Link>
-        </li>
-        
-        {/* Dropdown Menu */}
-        <li className="relative">
-          <button
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="relative hover:text-red-500 after:content-[''] after:absolute after:left-0 after:bottom-[-2px] 
-              after:w-0 after:h-[2px] after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Company Policies ▼
-          </button>
+            {/* Desktop Menu */}
+            <ul className="hidden md:flex space-x-6">
+              {['Home', 'Services', 'Q&A','policy', 'Contact'].map((item, index) => (
+                <li key={index}>
+                  <Link
+                    to={item.toLowerCase()}
+                    className="text-white relative transition-all duration-300 
+                      after:content-[''] after:absolute after:left-0 after:bottom-[-2px] 
+                      after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300
+                      hover:after:w-full"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-          {isDropdownOpen && (
-            <ul className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg border border-gray-200 z-10">
-              <li>
-                <Link
-                  to="/policy"
-                  className="block px-4 py-2 hover:bg-red-500 hover:text-white transition"
-                  onClick={() => setIsDropdownOpen(false)}
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/terms"
-                  className="block px-4 py-2 hover:bg-red-500 hover:text-white transition"
-                  onClick={() => setIsDropdownOpen(false)}
-                >
-                  Terms & Conditions
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/refund"
-                  className="block px-4 py-2 hover:bg-red-500 hover:text-white transition"
-                  onClick={() => setIsDropdownOpen(false)}
-                >
-                   Refund Policy
-                </Link>
-              </li>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white text-2xl md:hidden focus:outline-none"
+            >
+              {isOpen ? <FaTimes /> : <FaBars />}
+            </button>
+          </div>
+
+          {/* Mobile Dropdown Menu */}
+          {isOpen && (
+            <ul className="md:hidden flex flex-col items-center space-y-4 py-4 bg-gray-800 rounded-lg mt-2">
+              {['Home', 'Services', 'Q&A','policy', 'Contact'].map((item, index) => (
+                <li key={index}>
+                  <Link
+                    to={item.toLowerCase()}
+                    className="text-white text-lg transition duration-300 hover:text-blue-400"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           )}
-        </li>
-      </ul>
-
-      {/* Right Side - Buttons (Desktop) */}
-      {/* <div className="hidden md:flex space-x-4">
-        <Link to="/signup">
-          <button className="px-4 py-2 border border-black text-black rounded-md hover:bg-black hover:text-white font-bold">
-            Sign Up
-          </button>
-        </Link>
-        <Link to="/demo">
-          <button className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-800 font-bold">
-            Get Demo
-          </button>
-        </Link>
-      </div> */}
-
-      {/* Mobile Menu Button */}
-      <div className="md:hidden">
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 text-2xl">
-          ☰
-        </button>
+        </nav>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      {isMenuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white shadow-lg md:hidden">
-          <ul className="flex flex-col space-y-4 p-4 text-gray-700 font-bold">
-            <li>
-              <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
-            </li>
-            <li>
-              <Link to="/services" onClick={() => setIsMenuOpen(false)}>Services</Link>
-            </li>
-            <li>
-              <Link to="/pricing" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
-            </li>
-            
-            {/* Dropdown for Mobile */}
-            <li className="relative">
-              <button
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="hover:text-red-500"
-              >
-                Company Policies ▼
-              </button>
-
-              {isDropdownOpen && (
-                <ul className="mt-2 bg-white shadow-md rounded-lg border border-gray-200">
-                  <li>
-                    <Link
-                      to="/privacy"
-                      className="block px-4 py-2 hover:bg-red-500 hover:text-white transition"
-                      onClick={() => { setIsDropdownOpen(false); setIsMenuOpen(false); }}
-                    >
-                      Privacy Policy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/terms"
-                      className="block px-4 py-2 hover:bg-red-500 hover:text-white transition"
-                      onClick={() => { setIsDropdownOpen(false); setIsMenuOpen(false); }}
-                    >
-                      Terms & Conditions
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/security"
-                      className="block px-4 py-2 hover:bg-red-500 hover:text-white transition"
-                      onClick={() => { setIsDropdownOpen(false); setIsMenuOpen(false); }}
-                    >
-                      Security Policy
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-
-            {/* Mobile Buttons */}
-            <li>
-              <Link to="/signup" onClick={() => setIsMenuOpen(false)}>
-                <button className="w-full px-4 py-2 border border-black text-black rounded-md hover:bg-black hover:text-white font-bold">
-                  Sign Up
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link to="/demo" onClick={() => setIsMenuOpen(false)}>
-                <button className="w-full px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-800 font-bold">
-                  Get Demo
-                </button>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      )}
-    </nav>
+      {/* To prevent content from being hidden behind the fixed navbar */}
+      <div className="h-20"></div>
+    </>
   );
-};
+}
 
 export default Navbar;

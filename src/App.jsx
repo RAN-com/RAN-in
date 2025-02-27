@@ -1,30 +1,55 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./Elements/Navbar"; // Import the Navbar component
-import Home from "./Elements/Home";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Hero from "./Elements/Home";
+import Services from "./Elements/Policy";
+import Pricing from "./Elements/Pricing";
+import Footer from "./Elements/Footer";
+import Navbar from "./Elements/Navbar";
+import Layout from "./Elements/Layout";
+import PoliciesPage from "./Elements/Tems";
+import AskUs from "./Elements/Pricing";
+import ContactForm from "./Elements/Contact";
 
-import TermsAndConditions from "./Elements/Tems"; // Corrected import path and name
-import PrivacyPolicy from "./Elements/Privacy"; // Corrected import path
-import RefundPolicy from "./Elements/Refund"; // Corrected import path
+// Navbar Component
 
-const App = () => {
+
+// Hero Component
+
+
+// Services Component
+
+
+// Pricing Component
+
+
+// FAQ Component
+
+
+// Footer Component
+
+
+// Main App Component
+function App() {
   return (
     <Router>
-      <Navbar /> {/* Navbar should be inside Router */}
-      <div className="p-5">
-        <div className="bg-gray-300 w-full rounded-[50px] h-screen flex flex-col justify-center overflow-y-auto">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            
-            <Route path="/terms" element={<TermsAndConditions />} />
-            <Route path="/policy" element={<PrivacyPolicy />} />
-            <Route path="/refund" element={<RefundPolicy />} />
-            {/* Add more routes as needed */}
-          </Routes>
-        </div>
+      <div className="   text-white min-h-screen">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Layout />} />
+          <Route path="/home" element={<Layout />} />
+          <Route path="/Policy" element={<PoliciesPage />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/Q&A" element={<AskUs />} />
+          <Route path="/contact" element={<ContactForm />} />
+          
+          
+
+    
+        </Routes>
+        <Footer />
       </div>
     </Router>
   );
-};
+}
 
 export default App;
