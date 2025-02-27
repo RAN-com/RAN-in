@@ -63,7 +63,7 @@ const PoliciesPage = () => {
         <div ref={termsRef} className="shadow-lg rounded-lg p-8 ">
           <h1 className="text-3xl font-bold text-gray-200 mb-6">Terms and Conditions</h1>
           <p className="text-gray-200 mb-4">
-          Welcome to [RAN] . By accessing our website or using our software development services, you agree to abide by these Terms and Conditions. If you do not agree, please do not use our services. Our company specializes in providing high-quality software solutions, including website and mobile application development, maintenance, and consultancy. Each project is tailored to meet the specific needs of our clients, ensuring an efficient and productive experience.
+          Welcome to RAN . By accessing our website or using our software development services, you agree to abide by these Terms and Conditions. If you do not agree, please do not use our services. Our company specializes in providing high-quality software solutions, including website and mobile application development, maintenance, and consultancy. Each project is tailored to meet the specific needs of our clients, ensuring an efficient and productive experience.
 
 Clients engaging with our services are responsible for providing clear project requirements, ensuring timely communication, and supplying necessary assets for development. Payments must be made according to the agreed-upon schedule, and any delays may result in service suspension. Once work has commenced, no refunds will be provided. Intellectual property rights for custom software belong to the client upon full payment, while we retain the right to use generic code, libraries, or frameworks for future projects. We shall not be held liable for indirect, incidental, or consequential damages arising from the use of our services. Either party may terminate a project with prior notice, but fees for completed work must be paid in full.
           </p>
@@ -76,7 +76,7 @@ Clients engaging with our services are responsible for providing clear project r
           <p className="text-gray-200 mb-4">
           Clients may cancel a project before work begins for a full refund. However, once development has started, cancellation may incur fees based on the work completed. No refunds will be issued for completed work or delivered software. If a project is terminated early, a partial refund may be granted based on progress. Refunds will not be issued for changes of mind after project commencement, delays caused by the client, or third-party service failures. If you wish to request a refund or cancellation, please contact us at [Your Contact Email]. We strive to maintain fairness and transparency in our policies to ensure a smooth experience for our clients.
 
-For any inquiries, please reach out to us at [ranjunior05@gmail.com].
+For any inquiries, please reach out to us at ranjunior05@gmail.com.
 
           </p>
          
