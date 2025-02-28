@@ -57,7 +57,7 @@ function Hero() {
       </div>
 
       {/* Section 2: Contact & Animated Stats */}
-      <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-8 md:space-y-0">
+      <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-8 md:p-5">
       <div className="flex justify-center md:justify-start gap-4 ">
             {[
               { icon: <FaFacebookF />, label: "Facebook" },
