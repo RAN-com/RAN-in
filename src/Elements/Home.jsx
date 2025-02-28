@@ -26,19 +26,39 @@ function Hero() {
   }, []);
 
   return (
-    <section className="flex flex-col p-6 md:p-10 min-h-screen w-full justify-between space-y-10">
+    <section className="flex flex-col p-6 md:p-20 min-h-screen w-full justify-between ">
       
       {/* Section 1: Title + Social Media & Button */}
       <div className="flex flex-col md:flex-row items-center justify-between w-full">
         
         {/* Left: Title & Button */}
-        <div className="flex flex-col space-y-6 text-center md:text-left">
+        <div className="flex flex-col space-y-3 text-center md:text-left">
           <h2 className="text-4xl md:text-7xl font-bold text-white leading-tight font-serif">
             Bigger, <br className="hidden md:block"/> Bolder and <br className="hidden md:block "/> Better.
           </h2>
 
           {/* Social Media Icons */}
-          <div className="flex justify-center md:justify-start gap-4 mt-4">
+         
+        </div>
+
+        {/* Right: Message & Button */}
+        <div className="flex flex-col py-10  border-b border-gray-700 items-center md:items-start space-y-4 text-center md:text-left">
+          <p className="text-lg max-w-80 text-gray-300">
+            Custom Software Development – Tailored applications to meet specific business needs. <br/>
+            System Integration – Connecting different software for seamless operation. <br/>
+            Automation & Optimization – Enhancing efficiency by reducing manual tasks.
+          </p>
+
+          {/* Button with Hover Effect */}
+          <button className="relative px-6 py-3 text-white transition duration-300 border border-white hover:bg-white hover:text-black w-fit rounded-lg group">
+            Learn More
+            </button>
+        </div>
+      </div>
+
+      {/* Section 2: Contact & Animated Stats */}
+      <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-8 md:space-y-0">
+      <div className="flex justify-center md:justify-start gap-4 ">
             {[
               { icon: <FaFacebookF />, label: "Facebook" },
               { icon: <FaTwitter />, label: "Twitter" },
@@ -55,29 +75,8 @@ function Hero() {
               </a>
             ))}
           </div>
-        </div>
-
-        {/* Right: Message & Button */}
-        <div className="flex flex-col p-8 border-b border-gray-700 items-center md:items-start space-y-4 text-center md:text-left">
-          <p className="text-lg max-w-md text-gray-300">
-            Custom Software Development – Tailored applications to meet specific business needs. <br/>
-            System Integration – Connecting different software for seamless operation. <br/>
-            Automation & Optimization – Enhancing efficiency by reducing manual tasks.
-          </p>
-
-          {/* Button with Hover Effect */}
-          <button className="relative px-6 py-3 text-white transition duration-300 border border-white hover:bg-white hover:text-black w-fit rounded-lg group">
-            Learn More
-            <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-          </button>
-        </div>
-      </div>
-
-      {/* Section 2: Contact & Animated Stats */}
-      <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-8 md:space-y-0">
-        
         {/* Animated Stats */}
-        <div className="flex flex-wrap justify-center gap-12 md:gap-16">
+        <div className="flex  justify-center gap-12 md:gap-1">
           {statsData.map(({ text }, index) => (
             <div key={index} className="text-center">
               <p className="text-5xl md:text-7xl font-bold text-white">

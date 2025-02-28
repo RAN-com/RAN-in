@@ -32,7 +32,7 @@ import ContactForm from "./Elements/Contact";
 function App() {
   return (
     <Router>
-      <div className="   text-white min-h-screen">
+      <div className="   text-white ">
         <Navbar />
         <Routes>
           <Route path="/" element={<Layout />} />
