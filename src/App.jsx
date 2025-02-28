@@ -13,9 +13,9 @@ import ContactForm from "./Elements/Contact";
 function App() {
   return (
     <Router>
-      <div className="bg-black text-white min-h-screen flex flex-col">
+      <div className=" text-white min-h-screen flex flex-col">
         {/* Fixed Navbar for Mobile & Desktop */}
-        <div className="fixed top-0 w-full z-50 bg-black shadow-md">
+        <div className="fixed top-0 w-full z-50  shadow-md">
           <Navbar />
         </div>
 
