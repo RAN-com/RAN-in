@@ -42,7 +42,7 @@ function Hero() {
         </div>
 
         {/* Right: Message & Button */}
-        <div className="flex flex-col py-10  border-b border-gray-700 items-center md:items-start space-y-4 text-center md:text-left">
+        <div className="flex flex-col py-10 w-96  border-b border-gray-700 items-center md:items-start space-y-4 text-center md:text-left">
           <p className="text-lg max-w-80 text-gray-300">
             Custom Software Development – Tailored applications to meet specific business needs. <br/>
             System Integration – Connecting different software for seamless operation. <br/>
