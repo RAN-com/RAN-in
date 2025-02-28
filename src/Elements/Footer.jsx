@@ -1,5 +1,6 @@
 import React from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -18,11 +19,20 @@ function Footer() {
         <div>
           <h2 className="text-xl font-bold mb-3">Links</h2>
           <ul className="text-gray-300 space-y-2">
-            {["Home", "Services", "Q&A", "Contact"].map((link, index) => (
-              <li key={index}>
-                <a href="#" className="hover:text-blue-400 transition duration-300">{link}</a>
-              </li>
-            ))}
+          {["Home", "Services", "Q&A", "Contact"].map((link, index) => (
+  <li key={index}>
+    <Link
+      to={link.toLowerCase()} // ✅ Corrected from 'item' to 'link'
+      className="text-white relative transition-all duration-300 
+        after:content-[''] after:absolute after:left-0 after:bottom-[-2px] 
+        after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300
+        hover:after:w-full"
+    >
+      {link}
+    </Link>
+  </li>
+))}
+
           </ul>
         </div>
 
