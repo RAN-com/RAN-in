@@ -23,7 +23,7 @@ function Navbar() {
     <>
       {/* Fixed Navbar with Dynamic Background */}
       <div
-        className={`px-6 md:px-16 fixed top-0 left-0 w-full z-50 shadow-lg transition-all duration-300 ${
+        className={`px-6 md:px-1 fixed top-0 left-0 w-full z-50 shadow-lg transition-all overfolw-hidden duration-300 ${
           isScrolled ? 'bg-blue-900' : 'bg-transparent'
         }`}
       >

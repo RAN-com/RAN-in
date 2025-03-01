@@ -26,7 +26,7 @@ function Hero() {
   }, []);
 
   return (
-    <section className="flex flex-col p-6 md:p-20 min-h-screen w-full justify-between ">
+    <section className="flex flex-col p-6 md:p-20 min-h-screen w-auto justify-between ">
       
       {/* Section 1: Title + Social Media & Button */}
       <div className="flex flex-col md:flex-row items-center justify-between w-full">
