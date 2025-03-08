@@ -3,10 +3,8 @@ import { FaCode, FaBullhorn, FaPaintBrush, FaLaptopCode, FaDesktop } from "react
 const services = [
   { name: "Software Development", tools: "Java, Python, C#", icon: <FaLaptopCode /> },
   { name: "PC Build", tools: "Hardware Setup, Custom Builds, Maintenance", icon: <FaDesktop /> },
-
-  { name: "Web Development", tools: "React, Next.js, Node.js", icon: <FaCode /> },
   { name: "Digital Marketing", tools: "SEO, Google Ads, Analytics", icon: <FaBullhorn /> },
-  { name: "Branding", tools: "Photoshop, Illustrator, Figma", icon: <FaPaintBrush /> },
+  { name: "Design", tools: "Photoshop, Illustrator, Figma", icon: <FaPaintBrush /> },
 ];
 
 // Mobile View Component
@@ -30,9 +28,10 @@ function MobileView() {
 
 function Services() {
     const services = [
-      { name: "Web Development", tools: "React, Next.js, Node.js", icon: <FaCode /> },
+      { name: "Software Development", tools: "React Js,  C#", icon: <FaLaptopCode /> },
+      { name: "PC Build", tools: "Hardware Setup, Custom Builds, Maintenance", icon: <FaDesktop /> },
       { name: "Digital Marketing", tools: "SEO, Google Ads, Analytics", icon: <FaBullhorn /> },
-      { name: "Branding", tools: "Photoshop, Illustrator, Figma", icon: <FaPaintBrush /> },
+      { name: "Design", tools: "Photoshop, Illustrator, Figma", icon: <FaPaintBrush /> },
     ];
   
     return (
