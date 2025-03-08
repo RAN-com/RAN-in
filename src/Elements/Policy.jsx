@@ -1,6 +1,9 @@
-import { FaCode, FaBullhorn, FaPaintBrush } from "react-icons/fa";
+import { FaCode, FaBullhorn, FaPaintBrush, FaLaptopCode, FaDesktop } from "react-icons/fa";
 
 const services = [
+  { name: "Software Development", tools: "Java, Python, C#", icon: <FaLaptopCode /> },
+  { name: "PC Build", tools: "Hardware Setup, Custom Builds, Maintenance", icon: <FaDesktop /> },
+
   { name: "Web Development", tools: "React, Next.js, Node.js", icon: <FaCode /> },
   { name: "Digital Marketing", tools: "SEO, Google Ads, Analytics", icon: <FaBullhorn /> },
   { name: "Branding", tools: "Photoshop, Illustrator, Figma", icon: <FaPaintBrush /> },
